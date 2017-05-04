@@ -15,7 +15,7 @@ import java.util.Set;
 
 
 
-public class Repeat {
+public class Test1 {
 
 		public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -75,7 +75,7 @@ public class Repeat {
             });
              int a = list.size() - 1;
              
-             System.out.println("Top five repeted words"+list.subList(0,5 ));
+            // System.out.println("Top five repeted words"+list.subList(0,5 ));
              System.out.println("Second highest repeated word : "+list.get(1));
                        
             for (Entry<String, Integer> entry : list) 
