@@ -11,14 +11,10 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
- 
-
-
 
 public class Test1 {
 
 		public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
        
         HashMap<String, Integer> wordCountMap = new HashMap<String, Integer>();
@@ -36,18 +32,24 @@ public class Test1 {
             while (currentLine != null)
             {    
                                  
-                String[] words = currentLine.toLowerCase().split(" ");
+                String[] words = currentLine.split(" ");
                 
                                 
                 for (String word : words)
                 {
-                                        
-                    if(word.length() >4 && wordCountMap.containsKey(word))
+            
+                	word = word.toLowerCase();
+                                   
+                    String keymap = word.replaceAll("\\p{P}", "").toLowerCase();
+            
+                    if(word.length() > 4 && wordCountMap.containsKey(keymap))
                     {    
-                        wordCountMap.put(word, wordCountMap.get(word)+1);
+                        
+                        Integer count = wordCountMap.containsKey(keymap) ? wordCountMap.get(keymap) : 0;
+                        wordCountMap.put(keymap, count + 1 ); 
                     }
                      
-                   else
+                   else if(word.length() > 4 )
                     {
                         wordCountMap.put(word, 1);
                     }
@@ -75,8 +77,8 @@ public class Test1 {
             });
              int a = list.size() - 1;
              
-            // System.out.println("Top five repeted words"+list.subList(0,5 ));
-             System.out.println("Second highest repeated word : "+list.get(1));
+             //System.out.println("Top five repeted words"+list.subList(0,5 ));
+            System.out.println("Second highest repeated word : "+list.get(1));
                        
             for (Entry<String, Integer> entry : list) 
             {
