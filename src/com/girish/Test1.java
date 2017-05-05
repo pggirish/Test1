@@ -31,22 +31,20 @@ public class Test1 {
              
             while (currentLine != null)
             {    
-                                 
-                String[] words = currentLine.split(" ");
+            	 String cleentheline = currentLine.replaceAll("\\p{P}", " ").toLowerCase(); 
+            	
+                String[] words = cleentheline.split(" ");
                 
                                 
                 for (String word : words)
                 {
             
-                	word = word.toLowerCase();
-                                   
-                    String keymap = word.replaceAll("\\p{P}", "").toLowerCase();
-            
-                    if(word.length() > 4 && wordCountMap.containsKey(keymap))
+                            
+                    if(word.length() > 4 && wordCountMap.containsKey(word))
                     {    
                         
-                        Integer count = wordCountMap.containsKey(keymap) ? wordCountMap.get(keymap) : 0;
-                        wordCountMap.put(keymap, count + 1 ); 
+                        Integer count = wordCountMap.containsKey(word) ? wordCountMap.get(word) : 0;
+                        wordCountMap.put(word, count + 1 ); 
                     }
                      
                    else if(word.length() > 4 )
@@ -87,7 +85,8 @@ public class Test1 {
                            
                 }
             }
-        } 
+        }
+        
         catch (IOException e) 
         {
             e.printStackTrace();
@@ -102,6 +101,10 @@ public class Test1 {
             {
                 e.printStackTrace();
             }
+        
+        
+        
         }
     }    
+		
 }
